@@ -6,7 +6,7 @@ this-line-is-not-space/separated-except-for/the last couple words
 Another sentence. This line should be deleted.
 Delete all the this : hello hello hello goodbye
 Delete all everything after the colon:  hello how r u? goodbye
-line line line
+
 this is just another line,
 followed by another line,
 and one last line
