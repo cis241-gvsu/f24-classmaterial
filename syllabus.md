@@ -203,6 +203,11 @@ non-coding (multiple choice, fill-in-the-blank, etc.) questions
 and one or more coding questions. Some exams may be split over multiple
 class periods to allow sufficient time for coding.
 
+The room will be recorded during tests to ensure academic integrity.
+By taking the tests you consent to being recorded.
+Please reach out to the professor no later than the end of the first
+week of class if you have concerns.
+
 ### Academic Honesty Policies
 All students are expected to adhere to the academic honesty standards
 set forth by Grand Valley State University. In addition, students
