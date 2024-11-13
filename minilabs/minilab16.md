@@ -54,21 +54,4 @@ printf("%p\n", mat_stack[1]+2);
 ```
 <br><br><br>
 
-## 2D Arrays - Dynamically Allocated
-
-### Part 6
-
-Create a 2D array on the heap to represent the same
-$6 \times 5$ 2D array of doubles using the following
-(note:  you'll have to define `nrows` and `ncols`)
-```
-double *mat_dynamic1 = (double *) malloc(sizeof(double)*nrows*ncols);
-```
-Print out the `mat_dynamic1` variable and then
-answer the following questions:
-1. What memory address do you get?
-2. How would you access the element (the actual value)
-   at row index 2 and column index 3?
-
-<br><br><br>
 
