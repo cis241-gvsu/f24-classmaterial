@@ -19,7 +19,7 @@ printf("%p\n", &(mat_stack[0][1]));
 printf("%p\n", &(mat_stack[1][0]));
 printf("%p\n", &(mat_stack[2][0]));
 ```
-<br><br><br>
+<br><br><br><br>
 
 ### Part 3
 Given your answer to parts 1 and 2,
@@ -30,7 +30,7 @@ printf("%p\n", &(mat_stack[0][0])+1);
 printf("%p\n", &(mat_stack[1][0])+2);
 printf("%p\n", &(mat_stack[1][0])+5);
 ```
-<br><br><br>
+<br><br><br><br>
 
 ### Part 4
 Given your answer to the part 1,
@@ -41,7 +41,7 @@ printf("%p\n", mat_stack + 1);
 printf("%p\n", mat_stack + 2);
 printf("%p\n", mat_stack + 6);
 ```
-<br><br><br>
+<br><br><br><br>
 
 ### Part 5
 Given your answer to the previous parts,
