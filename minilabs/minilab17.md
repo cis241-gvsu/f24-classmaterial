@@ -1,65 +1,70 @@
-## 2D Arrays - Dynamically Allocated
+# Minilab 17 - Memory Leak
 
-### Part 1
+Suppose you have the following code:
 
-Create a 2D array on the heap to represent the same
-$6 \times 5$ 2D array of doubles using the following
-(note:  you'll have to define `nrows` and `ncols`)
 ```
-double *mat_dynamic1 = (double *) malloc(sizeof(double)*nrows*ncols);
-```
-Print out the `mat_dynamic1` variable and then
-answer the following questions:
-1. What memory address do you get?
-2. How would you access the element (the actual value)
-   at row index 2 and column index 3?
+#include <stdio.h>
+#include <stdlib.h>
 
-### Part 2
+typedef struct Blah{
+    char c;
+    double *p;
+    int i;
+} Blah;
 
-Create a 2D array on the heap to represent the same
-$6 \times 5$ 2D array of doubles using the following
-(note:  you'll have to define `nrows` and `ncols`)
-```
-int **mat_dyanmic2 = (int **) malloc(nrows*sizeof(int *));
-for (int i=0; i<nrows; i++) {
-    *(mat_dyanmic2+i) = (int *) malloc(ncols*sizeof(int));
+void bar(double **p1, int j, int n) {
+    double q = (double) j;
+    *p1 = (double *) malloc(sizeof(double)*n);
+
+    for(int i=0; i<n; i++) {
+        (*p1)[i] = q * i;
+    }
+
+}
+
+Blah* foo(Blah *p, int n1, int n2) {
+    Blah *b = (Blah *) malloc(sizeof(Blah)*n1);
+
+    Blah *b2 = b;
+
+    for (int i=0; i<n1; i++) {
+        (*b).c = p->c;
+        (*b).i = i;
+        bar(&(b->p), i, n2);
+
+        b++;
+
+    }
+    free(p);
+
+    return b2;
+}
+
+int main(void) {
+    int a = 10;
+    int b = 20;
+    double tot = 0;
+
+    Blah *p = (Blah *) malloc(sizeof(Blah));
+    p->c = 'a';
+
+    p = foo(p, a, b);
+
+
+    for(int i=0; i<a; i++) {
+        
+        for (int j=0; j<b; j++) {
+            
+            tot += ((*(p+i)).p)[j];
+
+        }
+        free(p[i].p);
+    }
+    free(p);
+
+    return 0;
 }
 ```
 
-Print out the `mat_dynamic2` variable and `mat_dynamic2[1]`
-and then answer the following questions:
-1. What memory addresses do you get?
-2. What would be the output of the following lines:
-```
-printf("%p\n", mat_dynamic2+1);
-printf("%p\n", *(mat_dynamic2+1));
-printf("%p\n", mat_dynamic2[3]);
-printf("%p\n", *(mat_dynamic2+1) + 2);
-```
-
-### Part 3
-
-Create a 2D array on the heap to represent the same
-$6 \times 5$ 2D array of doubles using the following
-(note:  you'll have to define `nrows` and `ncols`)
-```
-int *A = (int *) malloc(nrows*ncols*sizeof(int));
-int **mat_dynamic3 = (int **) malloc(nrows*sizeof(int *));
-for (int i=0; i<nrows; i++) {
-    *(mat_dynamic3+i) = A+i*ncols;
-}
-```
-Print out `mat_dynamic3` and `A`
-and then answer the following questions:
-1. What memory addresses do you get?
-2. What would the following lines print?
-```
-printf("%p\n", mat_dynamic3+1);
-printf("%p\n", *(mat_dynamic3+1));
-printf("%p\n", mat_dynamic3[3]);
-printf("%p\n", *(mat_dynamic3+1) + 2);
-printf("%p\n", A+3);
-```
-
-<br><br><br>
-
+Without deleting or changing any lines (e.g. by only adding lines),
+how do you fix the memory leak?
