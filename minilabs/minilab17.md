@@ -35,7 +35,6 @@ Blah* foo(Blah *p, int n1, int n2) {
         b++;
 
     }
-    free(p);
 
     return b2;
 }
@@ -58,9 +57,7 @@ int main(void) {
             tot += ((*(p+i)).p)[j];
 
         }
-        free(p[i].p);
     }
-    free(p);
 
     return 0;
 }
