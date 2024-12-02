@@ -57,8 +57,9 @@ int main(void) {
             tot += ((*(p+i)).p)[j];
             // line 53
         }
+        // line 55
     }
-    // line 56
+    // line 57
     return 0;
 }
 ```
